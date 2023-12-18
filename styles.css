@@ -3,6 +3,7 @@
     --page-bg: hsl(275, 100%, 97%);
     --info-txt: hsl(292, 16%, 49%);
     --heading-txt: hsl(292, 42%, 14%);
+    --p-txt: hsl(292, 16%, 49%);
     --all-font: 'Work Sans', sans-serif;
     --shadow: #ccc5b9;
 }
@@ -21,14 +22,18 @@ body {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-color: var(--page-bg);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .card-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10rem 15rem 10rem 15rem;
+    margin: 10rem;
+    max-width: 600px;
+    padding: 0 2rem 2rem 2rem;
     background-color: var(--White);
     border-radius: 1rem;
     box-shadow: 0rem 2rem 2rem 0.5rem var(--shadow)
@@ -36,9 +41,38 @@ body {
 
 .heading {
     display: flex;
-    justify-content: left;
-    justify-items: left;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-family: var(--all-font);
     font-weight: 700;
+    padding: 2rem 1.5rem;
+}
+
+.icon-star {
+    padding-right: 1.5rem;
+}
+
+h2 {
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--p-txt);
+    font-weight: 400;
+}
+
+.label::after {
+    content: "";
+    display: flex;
+    background-image: url(assets/images/icon-plus.svg);
+    background-size: 25px 25px;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
 }
