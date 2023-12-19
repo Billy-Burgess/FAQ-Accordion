@@ -20,7 +20,9 @@
 body {
     background-image: url(assets/images/background-pattern-desktop.svg);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: 100%;
+    max-height: 9rem;
+    min-height: 8rem;
     background-color: var(--page-bg);
     display: grid;
     align-items: center;
@@ -44,24 +46,37 @@ body {
     font-size: 1.5rem;
     font-family: var(--all-font);
     font-weight: 700;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
 }
 
 .icon-star {
     padding-right: 1.5rem;
 }
 
-h2 {
-    font-size: 1rem;
+.accordion {
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 18px 18px 0 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    background-color: transparent;
+    background-repeat: no-repeat;
 }
 
-p {
+.panel {
     font-size: 1rem;
     font-family: 'Work Sans', sans-serif;
     color: var(--p-txt);
     font-weight: 400;
+    padding: 0 1.125rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
 }
 
 .label::after {
@@ -75,4 +90,68 @@ p {
     top: 50%;
     right: -5px;
     transform: translateY(-50%);
+}
+
+/* .active,
+.accordion:hover {
+    background-color: #ccc;
+} */
+
+button:hover {
+    color: #3a0ca3
+}
+
+.accordion::after {
+    content: url(assets/images/icon-plus.svg);
+    float: right;
+}
+
+.active:after {
+    content: url(assets/images/icon-minus.svg);
+}
+
+.attribution {
+    position: absolute;
+    bottom: 0;
+}
+
+@media screen and (max-width: 650px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-image: url(assets/images/background-pattern-mobile.svg);
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10rem 3rem;
+        max-width: 600px;
+        padding: 0 1rem 1rem 1rem;
+        background-color: var(--White);
+        border-radius: 1rem;
+        box-shadow: 0rem 2rem 2rem 0.5rem var(--shadow)
+    }
+
+    .heading {
+        font-size: .75rem;
+        align-items: center;
+    }
+
+    .accordion {
+        font-size: .7rem;
+    }
+
+    .panel {
+        font-size: .6rem;
+    }
+
+    .attribution.push {
+        position: absolute;
+        bottom: 0;
+    }
 }
